@@ -1,0 +1,25 @@
+﻿ using System;
+using Stir_Denisa_ProiectApp.Data;
+using System.IO;
+namespace Stir_Denisa_ProiectApp
+ public partial class App : Application
+ {
+ static ShoppingCart database;
+ public static ShoppingCart Database
+ {
+ get
+ {
+ if (database == null)
+ {
+ database = new
+ShoppingCart(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
+LocalApplicationData), "ShoppingCart.db3"));
+ }
+ return database;
+ }
+ }
+ public App()
+ {
+ InitializeComponent();
+ MainPage = new AppShell();
+ }
